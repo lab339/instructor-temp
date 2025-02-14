@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://author-p133911-e1313554.adobeaemcloud.com/bin/franklin.delivery/jalagari/demo/main
+    url: https://author-p149747-e1544263.adobeaemcloud.com/bin/franklin.delivery/instructor-temp/lab339/main
     type: "markup"
     suffix: ".html"
