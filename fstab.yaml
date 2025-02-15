@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: https://author-p149747-e1544263.adobeaemcloud.com/bin/franklin.delivery/instructor-temp/lab339/main
+    url: https://author-p149747-e1544263.adobeaemcloud.com/bin/franklin.delivery/lab339/instructor-temp/main
     type: "markup"
     suffix: ".html"
