@@ -300,6 +300,12 @@ main .file-wrapper .field-dropregion {
 }
 
 /* Repeatable Styling */
+
+/* Hide repeatable wrapper if it has no visible children */
+main .form form .repeat-wrapper:not(:has(> .panel-wrapper[data-visible="true"], > .panel-wrapper:not([data-visible]))) {
+    display: none;
+}
+
 main .form form .repeat-actions {
     grid-column: span 12;
     order: 2;
@@ -607,4 +613,27 @@ main .form form .horizontal {
     display: flex;
     flex-direction: row;
     gap: inherit;
+}
+
+/** Theme CSS **/
+
+/**
+ * Required field indicator
+ */
+[data-required="true"] > label::after {
+  content: "*";
+  padding-inline-start: 5px;
+}
+
+/**
+ * Required field indicator not required for checkboxes and radio buttons
+ */
+.radio-wrapper > label::after,
+.checkbox-wrapper > label::after {
+    content: none;
+}
+
+.radio-wrapper.field-invalid > input,
+.checkbox-wrapper.field-invalid > input {
+    outline: 1px solid var(--form-error-color);
 }

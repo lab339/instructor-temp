@@ -3427,7 +3427,7 @@ class Form extends Container {
         }
     }
     submit(action, context) {
-        const validate_form = action?.payload?.validate_form;
+        const validate_form = action?.payload?.validate_form !== false;
         if (!validate_form || this.validate().length === 0) {
             const payload = action?.payload || {};
             const successEventName = payload?.success ? payload?.success : 'submitSuccess';
@@ -4701,7 +4701,8 @@ class FormFieldFactoryImpl {
                 minOccur: undefined,
                 maxOccur: undefined,
                 repeatable: undefined,
-                name: undefined
+                name: 'undefined',
+                visible: true
             };
             const newJson = {
                 ...{
@@ -4713,7 +4714,8 @@ class FormFieldFactoryImpl {
                     dataRef: child.dataRef,
                     events: {
                         'custom:setProperty': '$event.payload'
-                    }
+                    },
+                    visible: child.visible
                 },
                 ...{
                     'items': [newChild]

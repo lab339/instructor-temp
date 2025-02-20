@@ -197,6 +197,10 @@
         "label": "Submit Action",
         "options": [
           {
+            "name": "Submit to Spreadsheet",
+            "value": "fd/af/components/guidesubmittype/spreadsheet"
+          },
+          {
             "name": "Submit to REST endpoint",
             "value": "fd/af/components/guidesubmittype/restendpoint"
           },
@@ -206,6 +210,20 @@
           }
         ],
         "value": ""
+      },
+      {
+        "component": "text",
+        "name": "spreadsheetUrl",
+        "label": "Spreadsheet URL",
+        "valueType": "string",
+        "condition": {
+          "==": [
+            {
+              "var": "actionType"
+            },
+            "fd/af/components/guidesubmittype/spreadsheet"
+          ]
+        }
       },
       {
         "component": "boolean",
