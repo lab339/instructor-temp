@@ -382,6 +382,23 @@
           }
         },
         {
+          "title": "Range Slider",
+          "id": "range-slider",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/fd/components/form/numberinput/v1/numberinput",
+                "template": {
+                  "jcr:title": "Range Slider",
+                  "fieldType": "number-input",
+                  "enabled": true,
+                  "visible": true
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Panel",
           "id": "panel",
           "plugins": {
