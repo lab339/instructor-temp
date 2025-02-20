@@ -207,6 +207,22 @@
           {
             "name": "Send email",
             "value": "fd/af/components/guidesubmittype/email"
+          },
+          {
+            "name": "Submit to AEM Workflow",
+            "value": "fd/af/components/guidesubmittype/email1"
+          },
+          {
+            "name": "Submit to Workfront",
+            "value": "fd/af/components/guidesubmittype/email2"
+          },
+          {
+            "name": "Submit to Sharepoint list",
+            "value": "fd/af/components/guidesubmittype/email3"
+          },
+          {
+            "name": "Submit to Adobe Sign",
+            "value": "fd/af/components/guidesubmittype/email3"
           }
         ],
         "value": ""
