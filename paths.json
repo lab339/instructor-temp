@@ -2,5 +2,8 @@
   "mappings": [
     "/:/",
   "/content/securebank2/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/securebank2/"
   ]
 }
