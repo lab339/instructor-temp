@@ -1,6 +1,5 @@
 {
   "mappings": [
-    "/content/Securebank:/",
-    "/content/Securebank/metadata:/metadata.json"
+    "/:/"
   ]
 }
