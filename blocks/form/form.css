@@ -113,6 +113,11 @@ main .form .field-description {
     font-size: var(--form-font-size-xs);
 }
 
+main .form form .field-invalid {
+    border-left: 4px solid var(--form-error-color);
+    padding-left: 10px;
+}
+
 main .form form .field-invalid .field-description {
     color: var(--form-error-color);
     font-weight: 700;

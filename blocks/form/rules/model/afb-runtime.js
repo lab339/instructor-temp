@@ -2821,7 +2821,8 @@ class FunctionRuntimeImpl {
                                     }
                                     return filesMap;
                                 }
-                            }
+                            },
+                            toNumber: interpreter.toNumber
                         };
                         return funcDef(...args, globals);
                     },

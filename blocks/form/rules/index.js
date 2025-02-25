@@ -61,9 +61,11 @@ async function fieldChanged(payload, form, generateFormRendition) {
   if (!field) {
     return;
   }
+  console.log(changes);
   const fieldWrapper = field?.closest('.field-wrapper');
   changes.forEach((change) => {
     const { propertyName, currentValue, prevValue } = change;
+    console.log(propertyName, currentValue, prevValue);
     switch (propertyName) {
       case 'required':
         if (currentValue === true) {
@@ -73,13 +75,14 @@ async function fieldChanged(payload, form, generateFormRendition) {
         }
         break;
       case 'validationMessage':
-        {
-          const { validity } = payload.field;
-          if (field.setCustomValidity
-          && (validity?.expressionMismatch || validity?.customConstraint)) {
-            field.setCustomValidity(currentValue);
-            updateOrCreateInvalidMsg(field, currentValue);
-          }
+        console.log('validationMessage changed');
+        const { validity } = payload.field;
+        console.log(validity);
+        if (field.setCustomValidity
+        && (validity?.expressionMismatch || validity?.customConstraint)) {
+          console.log('setting custom validity');
+          field.setCustomValidity(currentValue);
+          updateOrCreateInvalidMsg(field, currentValue);
         }
         break;
       case 'value':
@@ -173,12 +176,17 @@ async function fieldChanged(payload, form, generateFormRendition) {
           generateFormRendition({ items: [currentValue] }, field?.querySelector('.repeat-wrapper'));
         }
         break;
-      case 'activeChild': handleActiveChild(activeChild, form);
+      case 'activeChild':
+        handleActiveChild(activeChild, form);
         break;
       case 'valid':
         if (currentValue === true) {
+          if (field.validity.customError) {
+            field.setCustomValidity('');
+          }
           updateOrCreateInvalidMsg(field, '');
         }
+        console.log('valid changed', currentValue, field.validity);
         break;
       default:
         break;

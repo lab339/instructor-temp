@@ -316,12 +316,8 @@ function inputDecorator(field, element) {
       input.addEventListener('touchstart', () => { input.type = field.type; }); // in mobile devices the input type needs to be toggled before focus
       input.addEventListener('focus', () => handleFocus(input, field));
       input.addEventListener('blur', () => handleFocusOut(input));
-    } else if (input.type !== 'file') {
+    } else if (input.type !== 'file' && input.type !== 'radio' && input.type !== 'checkbox') {
       input.value = field.value ?? '';
-      if (input.type === 'radio' || input.type === 'checkbox') {
-        input.value = field?.enum?.[0] ?? 'on';
-        input.checked = field.value === input.value;
-      }
     } else {
       input.multiple = field.type === 'file[]';
     }
@@ -340,7 +336,7 @@ function inputDecorator(field, element) {
     if (field.maxFileSize) {
       input.dataset.maxFileSize = field.maxFileSize;
     }
-    if (field.default !== undefined) {
+    if (field.default !== undefined && input.type !== 'radio' && input.type !== 'checkbox') {
       input.setAttribute('value', field.default);
     }
     if (input.type === 'email') {
@@ -403,7 +399,9 @@ export async function generateFormRendition(panel, container, getItems = (p) => 
 function enableValidation(form) {
   form.querySelectorAll('input,textarea,select').forEach((input) => {
     input.addEventListener('invalid', (event) => {
-      checkValidation(event.target);
+      if (event.target.checkVisibility()) {
+        checkValidation(event.target);
+      }
     });
   });
 
