@@ -1,11 +1,10 @@
 {
   "mappings": [
-    "/content/securebank2/:/",
-  "/content/securebank2/metadata:/metadata.json",
+    "/content/securebank/:/",
     "/content/forms/:/content/forms/"
   ],
   "includes": [
-    "/content/securebank2/",
+    "/content/securebank/",
     "/content/forms/"
   ]
 }
