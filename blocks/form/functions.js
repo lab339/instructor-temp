@@ -33,9 +33,9 @@ function days(endDate, startDate, globals) {
  * @param {scope} globals
  */
 function setMaximumDate(date, globals) {
-  const date = new Date(date);
+  const date1 = new Date(date);
   // get a date 18 years and 1 day ago
-  const minimum = new Date(date.getFullYear() - 18, date.getMonth(), date.getDate() - 1);
+  const minimum = new Date(date1.getFullYear() - 18, date1.getMonth(), date1.getDate() - 1);
   // convert to YYYY-MM-DD
   const stringDate = minimum.toISOString().split('T')[0];
   globals.functions.setProperty(globals.field, {maximum: stringDate});
