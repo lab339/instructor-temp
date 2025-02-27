@@ -13,6 +13,7 @@ function getFullName(firstname, lastname) {
  * Calculate the number of days between two dates.
  * @param {*} endDate
  * @param {*} startDate
+ * @param {scope} globals
  * @returns {number} returns the number of days between two dates
  */
 function days(endDate, startDate, globals) {
@@ -26,6 +27,11 @@ function days(endDate, startDate, globals) {
   return end - start;
 }
 
+/**
+ * Set the minimum date for a date field.
+ * @param {date} date
+ * @param {scope} globals
+ */
 function setMinDate(date, globals) {
   globals.functions.setProperty(globals.field, {minimum: date})
 }
