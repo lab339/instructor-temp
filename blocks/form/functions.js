@@ -29,11 +29,10 @@ function days(endDate, startDate, globals) {
 
 /**
  * Set the minimum date for a date field.
- * @param {date} date
  * @param {scope} globals
  */
-function setMaximumDate(date, globals) {
-  const date1 = new Date(date);
+function setMaximumDate(globals) {
+  const date1 = new Date();
   // get a date 18 years and 1 day ago
   const minimum = new Date(date1.getFullYear() - 18, date1.getMonth(), date1.getDate() - 1);
   // convert to YYYY-MM-DD
