@@ -4636,6 +4636,21 @@ class DateField extends Field {
             }
         }
     }
+
+    get maximum() {
+        return this._jsonModel.maximum;
+    }
+
+    set maximum(date) {
+        let dateValue = date;
+        if (typeof value === 'number') {
+            const coercedValue = numberToDatetime(value);
+            if (!isNaN(coercedValue)) {
+                dateValue = formatDate(coercedValue, this.locale, this._dataFormat);
+            }
+        }
+        this._jsonModel.maximum = dateValue;
+    }
 }
 class EmailInput extends Field {
     _getDefaults() {

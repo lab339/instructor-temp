@@ -32,9 +32,14 @@ function days(endDate, startDate, globals) {
  * @param {date} date
  * @param {scope} globals
  */
-function setMinDate(date, globals) {
-  globals.functions.setProperty(globals.field, {minimum: date})
+function setMaximumDate(date, globals) {
+  const date = new Date(date);
+  // get a date 18 years and 1 day ago
+  const minimum = new Date(date.getFullYear() - 18, date.getMonth(), date.getDate() - 1);
+  // convert to YYYY-MM-DD
+  const stringDate = minimum.toISOString().split('T')[0];
+  globals.functions.setProperty(globals.field, {maximum: stringDate});
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export { getFullName, days, setMinDate };
+export { getFullName, days, setMaximumDate };
