@@ -37,4 +37,4 @@ function setMinDate(date, globals) {
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export { getFullName, days };
+export { getFullName, days, setMinDate };
