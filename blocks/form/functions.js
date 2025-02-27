@@ -26,5 +26,9 @@ function days(endDate, startDate, globals) {
   return end - start;
 }
 
+function setMinDate(date, globals) {
+  globals.functions.setProperty(globals.field, {minimum: date})
+}
+
 // eslint-disable-next-line import/prefer-default-export
 export { getFullName, days };

@@ -2661,6 +2661,7 @@ const submit = async (context, success, error, submitAs = 'multipart/form-data',
     }
     const attachments = getAttachments(context.form, true);
     let submitContentType = submitAs;
+    let headers = context.form.headers;
     const submitDataAndMetaData = { 'data': data, ...metadata };
     let formData = submitDataAndMetaData;
     if (Object.keys(attachments).length > 0 || submitAs === 'multipart/form-data') {
@@ -2668,6 +2669,7 @@ const submit = async (context, success, error, submitAs = 'multipart/form-data',
         submitContentType = 'multipart/form-data';
     }
     await request(context, endpoint, 'POST', formData, success, error, {
+        ...headers,
         'Content-Type': submitContentType
     });
 };
@@ -3183,6 +3185,11 @@ class Form extends Container {
             this._jsonModel.properties['fd:changeEventBehaviour'] = 'self';
         }
     }
+
+    get headers() {
+        return this._jsonModel.headers || {};
+    }
+
     _logger;
     get activeField() {
         return this._findActiveField(this);
